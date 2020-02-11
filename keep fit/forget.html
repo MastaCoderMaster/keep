@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>重铸界面</title>
+    <script src="jquery-3.3.1.js"></script>
+    <script src="ripple.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <link rel="stylesheet" href="bootstrap.min.css"> 
+    <style>
+    .container{
+      position: static;
+      margin-top:10%;
+      height:800px;
+      width: 50%;
+    }
+    .jumbotron{
+      height: 80%;
+      padding-top:3%;
+      padding-bottom:3%;
+      padding-right:3%;
+      padding-left:3%;
+    }
+    
+    .p{font-family: "Times New Roman","宋体",sans-serif;
+      font-size: 150%;
+      opacity:6;
+      color: rgb(1, 7, 0);}
+    body{
+        text-align:center;
+        background:url(green.jpg)  no-repeat center center;
+        background-size:cover;
+        background-attachment:fixed;
+        }
+    </style>
+</head>
+
+<body>
+<form action="" method="post" id="form1">
+    <div class="container" class="col-md-12">
+        <div  class="jumbotron" style="opacity:0.6">
+                <h1>忘记密码</h1><br>
+               <div class="col-md-6 col-md-offset-3"><br><br>
+                <p>请输入注册邮箱</p>
+                <input type="email" class="form-control" name="email" placeholder="邮箱" >
+                <br><br>
+                  <div class="input-group">
+                    <input type="code" class="form-control" name="code" placeholder="请输入验证码">
+                    <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit" id="button1">发送验证码</button>
+                    </span></div> <br>
+                <p>请输入密码</p>
+                <input type="password" class="form-control" name="password" placeholder="密码">
+                <br>
+                <input type="submit" name="submit" value="重置" id="button2" class="btn btn-primary btn-lg">
+                </div> 
+        </div></div>
+      </form>
+<script>
+  
+  $(document).ready(function(){
+			$("#button1").click(function(){				
+				$("#form1").attr("action","Verification.php"); 
+				$("form").submit();
+			});
+			$("#button2").click(function(){				
+				$("#form1").attr("action","update.php"); 
+				$("form").submit();
+        });
+      });
+</script>
+
+</body>
+
+</html>

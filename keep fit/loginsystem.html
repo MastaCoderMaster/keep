@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>注册界面</title>
+    <script src="jquery-3.3.1.js"></script>
+    <script src="ripple.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <link rel="stylesheet" href="bootstrap.min.css"> 
+    <style>
+    .container{
+      position: static;
+      margin-top:10%;
+      height:800px;
+      width: 50%;
+    }
+    .jumbotron{
+      height: 80%;
+      padding-top:3%;
+      padding-bottom:3%;
+      padding-right:3%;
+      padding-left:3%;
+    }
+    
+    .p{font-family: "Times New Roman","宋体",sans-serif;
+      font-size: 150%;
+      opacity:6;
+      color: rgb(1, 7, 0);}
+    body{
+        text-align:center;
+        background:url(green.jpg)  no-repeat center center;
+        background-size:cover;
+        background-attachment:fixed;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container" class="col-md-12">
+        <div  class="jumbotron" style="opacity:0.6">
+          <ul class="nav nav-tabs nav-justified">
+            <li role="presentation"><a href="signinsystem.html">登陆</a></li>
+            <li role="presentation" class="active"><a href="#">注册</a></li>
+          </ul>
+                <h1>请注册</h1><br>
+               <div class="col-md-6 col-md-offset-3"><br><br>
+                <p>请输入注册邮箱</p>
+                <input type="email" class="form-control"  id="email" placeholder="邮箱" >
+                <br><br>
+                  <div class="input-group">
+                    <input type="code" class="form-control"  id="code" placeholder="请输入验证码">
+                    <span class="input-group-btn">
+                    <button class="btn btn-default"  id="button1">发送验证码</button>
+                    </span></div> <br>
+                <p>请输入密码</p>
+                <input type="password" class="form-control" id="password"  placeholder="密码">
+                <br>
+                <button  id="button2" class="btn btn-primary btn-lg">注册</button>
+                </div> 
+        </div></div>
+     
+<script>
+			$("#button1").click(function(){				
+        email=$("#email").val();
+           $.post("emailpost.php",{
+             email
+           
+           },
+           function(data,status){
+        alert("数据: \n" + data + "\n状态: " + status);
+    });
+			});
+
+			$("#button2").click(function(){				
+        email=$("#email").val();
+        password=$("#password").val();
+        code=$("#code").val();
+     $.post("confarm.php",{
+             email,
+             password,
+             code
+            },
+            function(data,status){
+        alert("数据: \n" + data + "\n状态: " + status);
+     
+
+
+
+    });
+          
+         
+        });
+
+
+     
+
+ 
+</script>
+
+</body>
+
+</html>
